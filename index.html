@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ONLY PREMIUM TRUSTED CUSTOMER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#050b1f;--navy2:#0b1a3a;--navy3:#12275a;--gold:#f5d27a;--gold2:#c9972f;--text:#e8ecf7;--muted:#9aa7c7;--ok:#3ddc97;--bad:#ff6b6b;--warn:#ffb84d}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(1200px 700px at 80% -10%,#16327a55,transparent),radial-gradient(900px 600px at -10% 30%,#c9972f18,transparent),linear-gradient(180deg,#02060f,var(--navy) 40%,#02050d);min-height:100vh;line-height:1.55}
+h1,h2,h3,.brand b{font-family:Cinzel,serif}
+.gold{background:linear-gradient(90deg,#fff1b8,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:#050b1fcc;border-bottom:1px solid #f5d27a33}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand svg{width:40px;height:40px}.brand b{font-size:.95rem;letter-spacing:.08em;line-height:1.1}
+.brand b span{display:block;font-size:.62rem;color:var(--gold);letter-spacing:.2em;font-family:Inter}
+nav{display:flex;gap:6px;align-items:center}
+nav a{color:var(--text);text-decoration:none;font-size:.88rem;padding:8px 12px;border-radius:999px;border:1px solid transparent;transition:.25s;cursor:pointer}
+nav a:hover{border-color:#f5d27a66;color:var(--gold);box-shadow:0 0 18px #f5d27a22}
+nav a.cta{border-color:var(--gold2);color:var(--gold)}
+.burger{display:none;background:none;border:1px solid #f5d27a55;color:var(--gold);border-radius:8px;padding:6px 10px;font-size:1.2rem}
+.hero{padding:70px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.05;font-weight:900;letter-spacing:.03em}
+.sub{font-family:Cinzel,serif;color:var(--gold);letter-spacing:.2em;margin:14px 0;font-size:1.05rem}
+.hero p{color:var(--muted);max-width:520px}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 .95rem Inter;padding:14px 28px;border-radius:12px;color:#1a1204;background:linear-gradient(135deg,#fff1b8,var(--gold),var(--gold2));box-shadow:0 8px 30px #c9972f44,inset 0 1px 0 #fff9;transition:.25s;text-decoration:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px #f5d27a55}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold2);box-shadow:none}
+.btn.sm{padding:7px 14px;font-size:.8rem;border-radius:9px}.btn.bad{background:linear-gradient(135deg,#ffb3b3,var(--bad));color:#2a0606}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+.crown{display:grid;place-items:center;position:relative}
+.crown svg{width:min(380px,80%);filter:drop-shadow(0 0 40px #f5d27a55);animation:float 5s ease-in-out infinite}
+.crown:before{content:"";position:absolute;width:75%;aspect-ratio:1;border-radius:50%;border:1px solid #f5d27a33;box-shadow:0 0 80px #2a50c455 inset,0 0 60px #f5d27a22;animation:pulse 4s infinite}
+@keyframes float{50%{transform:translateY(-12px)}}@keyframes pulse{50%{opacity:.4;transform:scale(1.05)}}
+.card{background:linear-gradient(160deg,#102252dd,#070f26ee);border:1px solid #f5d27a44;border-radius:18px;padding:22px;box-shadow:0 0 0 1px #00000066,0 10px 40px #00000066,0 0 30px #f5d27a0f;transition:.3s}
+.card:hover{border-color:#f5d27a99;box-shadow:0 0 34px #f5d27a2a,0 10px 40px #000a}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:10px 0 60px}
+.slot{text-align:center}.slot .t{font-family:Cinzel,serif;font-size:1.9rem;font-weight:700}
+.slot .d{color:var(--muted);font-size:.8rem}.slot .cd{margin-top:8px;font-weight:600;color:var(--ok);font-variant-numeric:tabular-nums}
+.slot.closed .cd{color:var(--bad)}
+section{padding:46px 0}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);text-align:center;margin-bottom:8px}
+.lead{text-align:center;color:var(--muted);margin-bottom:30px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:700 1.1rem Cinzel;color:#1a1204;background:linear-gradient(135deg,#fff1b8,var(--gold2));margin-bottom:12px}
+.step p,.benefit p{color:var(--muted);font-size:.9rem}
+.order{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:start}
+label{display:block;font-size:.8rem;color:var(--gold);margin:12px 0 5px;letter-spacing:.04em}
+input,select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #f5d27a44;background:#050d24;color:var(--text);font:400 .95rem Inter;outline:0;transition:.2s}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #f5d27a22}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.addrow{display:grid;grid-template-columns:1.2fr 1fr auto;gap:10px;align-items:end}
+.addrow label{margin-top:0}
+.list{margin-top:12px;display:grid;gap:8px}
+.entry{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border:1px dashed #f5d27a44;border-radius:10px;background:#0a1633}
+.entry b{letter-spacing:.2em;font-size:1.05rem;color:var(--gold)}
+.x{background:none;border:1px solid #ff6b6b66;color:var(--bad);border-radius:8px;padding:3px 10px;cursor:pointer}
+.slotpick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.slotpick label{margin:0;cursor:pointer;color:var(--text)}
+.slotpick input{display:none}
+.slotpick span{display:block;text-align:center;padding:12px 6px;border:1px solid #f5d27a44;border-radius:12px;background:#0a1633;transition:.2s}
+.slotpick span small{display:block;color:var(--muted);font-size:.7rem}
+.slotpick input:checked+span{border-color:var(--gold);background:#1b2f66;box-shadow:0 0 20px #f5d27a33}
+.slotpick input:disabled+span{opacity:.4;cursor:not-allowed}
+.sum dt{color:var(--muted);font-size:.8rem}.sum dd{margin:0 0 10px;font-weight:600}
+.pill{display:inline-block;padding:3px 12px;border-radius:999px;font-size:.74rem;font-weight:600;border:1px solid}
+.Pending{color:var(--warn);border-color:#ffb84d77;background:#ffb84d14}.Confirmed{color:var(--ok);border-color:#3ddc9777;background:#3ddc9714}
+.Rejected,.Expired,.Cancelled{color:var(--bad);border-color:#ff6b6b77;background:#ff6b6b14}
+.msg{margin-top:12px;padding:12px 14px;border-radius:10px;font-size:.9rem}.msg.err{background:#ff6b6b18;border:1px solid #ff6b6b66;color:#ffb3b3}
+.msg.okm{background:#3ddc9712;border:1px solid #3ddc9766}.msg.info{background:#f5d27a10;border:1px solid #f5d27a55;color:var(--gold)}
+.ref{font:700 1.5rem Cinzel;color:var(--gold);letter-spacing:.1em}
+.benefit{text-align:center}.benefit .ic{font-size:1.9rem;width:62px;height:62px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;border:1px solid #f5d27a77;background:radial-gradient(#f5d27a22,transparent);box-shadow:0 0 24px #f5d27a22}
+.benefit h3{font-size:1rem;letter-spacing:.06em}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+footer{margin-top:50px;padding:36px 0;border-top:1px solid #f5d27a33;text-align:center;color:var(--muted);font-size:.85rem}
+footer .brand{justify-content:center;margin-bottom:10px}
+.view{display:none}.view.on{display:block}
+.login{max-width:420px;margin:60px auto}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid #f5d27a22;vertical-align:top}
+th{color:var(--gold);font-weight:600;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}
+.scroll{overflow-x:auto}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab{padding:7px 16px;border-radius:999px;border:1px solid #f5d27a44;background:none;color:var(--text);cursor:pointer;font:500 .82rem Inter}
+.tab.on{background:linear-gradient(135deg,#fff1b8,var(--gold2));color:#1a1204;border-color:transparent}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:12px 0}.filters>div{min-width:140px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.kpi{text-align:center;padding:14px}.kpi b{display:block;font:700 1.7rem Cinzel;color:var(--gold)}
+.dashhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0 6px}
+.dashhead h2{text-align:left;margin:0}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #f5d27a44;background:#050d24;color:var(--text);font:400 .95rem Inter;outline:0;min-height:170px;resize:vertical}
+textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px #f5d27a22}
+.rlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
+.rcard{display:grid;gap:10px;align-content:start}.rmeta{color:var(--muted);font-size:.8rem}
+pre.rbody{white-space:pre-wrap;overflow-wrap:anywhere;font:500 .95rem/1.7 Inter,sans-serif;letter-spacing:.04em;background:#050d24;border:1px dashed #f5d27a44;border-radius:10px;padding:14px;max-height:340px;overflow:auto;color:var(--text)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.rgrid>*{min-width:0}
+.ritem{padding:12px 0;border-bottom:1px solid #f5d27a22;display:grid;gap:6px}
+@media(max-width:900px){.rgrid{grid-template-columns:1fr}.hero,.order{grid-template-columns:1fr}.crown{order:-1}.benefits{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}}
+@media(max-width:760px){.burger{display:block}nav{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#050b1ffa;padding:14px;border-bottom:1px solid #f5d27a44}nav.open{display:flex}.slots{grid-template-columns:1fr}.row,.addrow{grid-template-columns:1fr}.slotpick{grid-template-columns:1fr}}
+
+/* ===== home page redesign ===== */
+body{background:radial-gradient(1100px 700px at 75% -5%,#1b3d9a55,transparent),radial-gradient(800px 600px at 0% 35%,#12275a66,transparent),linear-gradient(180deg,#02060f,#061333 45%,#02050d)}
+nav a.cta{border-color:transparent;color:var(--text)}
+nav a:first-child{color:var(--gold)}
+.hero{padding:46px 0 24px}
+.hero h1{font-size:clamp(2.2rem,5.4vw,4rem);letter-spacing:.02em}
+.sub{font-family:Inter,sans-serif;letter-spacing:.02em;color:#fff;font-size:1.35rem;margin:8px 0 14px;font-weight:500}
+.hero p{color:#dfe5f5;max-width:560px;font-size:.95rem}
+.btn{border-radius:6px;padding:12px 26px}.btn.sm{border-radius:6px}
+.btn.dark{background:linear-gradient(180deg,#14306e,#081433);color:#fff;border:1px solid #f5d27a55;box-shadow:none}
+.crown:before{display:none}
+.crown svg{width:min(400px,86%);filter:drop-shadow(0 0 34px #f5d27a44)}
+.card{border-radius:10px;background:linear-gradient(160deg,#0f2150ee,#060e25f2);border:1px solid #f5d27a77}
+.slots{margin:6px 0 34px}
+.slot{display:flex;align-items:center;gap:18px;text-align:left;padding:16px 22px;border-radius:8px}
+.slot .sic{width:58px;height:58px;flex:none;filter:drop-shadow(0 0 14px #f5d27a66)}
+.slot .t{font-family:Inter,sans-serif;font-size:1.5rem;font-weight:600;-webkit-text-fill-color:#fff;color:#fff;background:none;line-height:1.15}
+.slot .d{color:#e8ecf7;font-size:.82rem;line-height:1.35}
+.slot .cd{margin-top:4px;color:#e8ecf7}.slot .cd small{display:block;font-size:.8rem}
+.slot .cd b{font:700 1.7rem Inter;color:#ff2a2a;letter-spacing:.02em}
+.slot.closed .cd{color:#ff6b6b}
+section{padding:26px 0}
+h2.sh{display:flex;align-items:center;gap:14px;text-align:left;font-size:1.5rem;margin-bottom:16px}
+h2.sh:after{content:"";flex:1;height:2px;background:linear-gradient(90deg,#f5d27a,transparent)}
+.lead.lft{text-align:left;margin:-8px 0 16px;font-size:.85rem}
+.step{padding:16px 18px}
+.sthead{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.step .n{margin:0;width:38px;height:38px;font-family:Inter,sans-serif;flex:none}
+.ico{width:34px;height:34px;flex:none}
+.step h3{font-family:Inter,sans-serif;font-size:1.02rem;font-weight:600;margin-bottom:4px}
+.step p{color:#dfe5f5;font-size:.84rem}
+.order{grid-template-columns:1.55fr 1fr;gap:18px}
+.ocard{padding:0;overflow:hidden}
+.ohead{display:flex;align-items:center;gap:14px;padding:12px 18px;background:linear-gradient(90deg,#0b1a3a,#14306e55);border-bottom:1px solid #f5d27a55}
+.ohead h2{margin:0;text-align:left;font-size:1.15rem}
+.olead{font-size:.72rem;color:#dfe5f5}
+.formpanel{background:#eef1f8;margin:10px;border-radius:8px;padding:14px;color:#0b1a3a}
+.formpanel label{color:#0b1a3a;font-weight:600;font-size:.72rem;margin:0 0 4px;letter-spacing:0}
+.formpanel input,.formpanel select{background:#fff;color:#0b1a3a;border:1px solid #c9d2e6;padding:9px 11px;border-radius:5px;font-size:.85rem}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qrow{display:flex;align-items:flex-end;gap:12px;margin-top:12px}.qcol{flex:1}
+#fQty{display:none}
+.qtys{display:flex;gap:6px;flex-wrap:wrap}
+.qtys button{flex:1;min-width:44px;padding:7px 0;border:1px solid #c9d2e6;background:#fff;color:#0b1a3a;border-radius:4px;font:600 .8rem Inter;cursor:pointer}
+.qtys button.on{background:#f5d27a;border-color:#c9972f}
+.qrow .btn{height:36px;padding:0 24px;white-space:nowrap}
+.boxes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.subbox{background:linear-gradient(160deg,#0f2150,#060e25);border:1px solid #f5d27a66;border-radius:8px;padding:12px;color:var(--text);min-height:120px}
+.subbox h4{font:600 .9rem Inter;color:#fff;margin-bottom:8px}
+.subbox .list{margin-top:0}
+.subbox .entry{border:1px solid #f5d27a33;border-style:solid;background:#050d24;padding:7px 12px}
+.subbox .entry b{letter-spacing:.06em;color:#fff;font-size:1rem}
+.subbox .x{border-color:transparent;color:#fff;padding:0 6px}
+.subbox .slotpick{margin-top:0;grid-template-columns:repeat(3,1fr);gap:6px}
+.slotpick span{padding:8px 2px;border-radius:6px;background:#050d24;font-size:.78rem;display:block}
+.slotpick span b{display:block;font-weight:600;color:#fff}
+.slotpick .sic2{width:22px;height:22px;display:block;margin:0 auto 2px}
+.slotpick span small{font-size:.62rem}
+.slotpick input:checked+span{background:#14306e;border-color:#f5d27a}
+#orderMsg .msg{margin-top:12px;color:#fff}
+#orderMsg .msg.okm{background:#0e5a36;border:1px solid #2ec27e;color:#fff}
+#orderMsg .msg.okm .ref{color:#fff;font:700 1.4rem Inter}
+#orderMsg .msg.err{background:#ffe3e3;color:#8a1111;border-color:#e88}
+.sum{margin:0}.sum>div{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.85rem;padding:2px 0}.sum dt{color:#e8ecf7;font-size:.85rem}.sum dd{margin:0}
+.card h3.gold{font-family:Inter,sans-serif;font-size:1rem;font-weight:600;-webkit-text-fill-color:#fff;color:#fff;background:none}
+.legend{margin-top:12px;font-size:.78rem}.legend>div{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+#demoNote{background:#f3d36a;color:#4a3500;border-color:#c9972f}
+.benefits{gap:14px}
+.benefit{display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px}
+.benefit .ic{margin:0;flex:none;width:52px;height:52px;border:0;background:none;box-shadow:none}.benefit .ic svg{width:44px;height:44px}
+.benefit h3{font-family:Inter,sans-serif;font-weight:600;font-size:.95rem;letter-spacing:0;color:#fff}
+.benefit p{font-size:.78rem;color:#dfe5f5}
+footer{margin-top:24px;padding:18px 0;text-align:left;background:#030814;border-top:1px solid #f5d27a66}
+.fgrid{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+footer .brand{margin:0;justify-content:flex-start}
+.fmid{text-align:center;font-size:.72rem;color:#e8ecf7}
+.flinks{margin-top:4px;font-size:.68rem;opacity:.75}.flinks a{cursor:pointer;color:var(--muted);text-decoration:none}.flinks a:hover{color:var(--gold)}.flinks span{margin:0 6px}
+.fend{text-align:right;font-size:.7rem;color:var(--muted)}
+#conn{color:#3ddc97;margin:0 0 2px;font-size:.72rem}
+#conn:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc97;margin-right:6px}
+.bnav{display:none}
+@media(max-width:900px){.order{grid-template-columns:1fr}.row3{grid-template-columns:1fr}.boxes{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr;text-align:center;gap:10px}footer .brand{justify-content:center}.fend{text-align:center}.benefit{padding:12px}}
+@media(max-width:760px){
+ body{padding-bottom:64px}
+ .crown{display:none}.hero{padding:24px 0 10px;gap:8px}.hero h1{font-size:2rem}.sub{font-size:1.05rem}.hero p{font-size:.82rem}.crown svg{width:min(260px,70%)}
+ .slot{padding:12px 16px}.slot .sic{width:44px;height:44px}.slot .t{font-size:1.2rem}.slot .cd b{font-size:1.4rem}
+ .grid3{grid-template-columns:repeat(3,1fr);gap:8px}.step{padding:10px}.step .sthead{margin-bottom:4px}.step .n{width:26px;height:26px;font-size:.8rem}.step .ico{width:22px;height:22px}.step h3{font-size:.8rem}.step p{display:none}
+ .benefits{grid-template-columns:1fr}
+ nav{top:70px}
+ .bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#050b1ff5;border-top:1px solid #f5d27a66;justify-content:space-around;padding:6px 4px;backdrop-filter:blur(10px)}
+ .bnav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.62rem;color:var(--muted);text-decoration:none;cursor:pointer;flex:1}
+ .bnav a svg{width:22px;height:22px}.bnav a:first-child{color:var(--gold)}
+}
+
+/* ===== login + dashboards ===== */
+.login{max-width:460px;margin:50px auto;padding:22px;border-color:#f5d27a99;box-shadow:0 0 50px #2a50c433,0 10px 40px #000a}
+.login h2{font-family:Inter,sans-serif;font-size:1.5rem;color:#fff;text-align:center;font-weight:600}
+.ltabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#050d24;border:1px solid #f5d27a44;border-radius:6px;padding:3px}
+.ltabs button{border:0;border-radius:4px;padding:8px;background:none;color:var(--text);font:600 .82rem Inter;cursor:pointer}
+.ltabs button.on{background:linear-gradient(135deg,#fff1b8,var(--gold2));color:#1a1204}
+.login label{color:#fff;font-weight:600}
+.login input{background:#0a1a44;border-color:#2a4a9a}
+.dashhead h2{font-family:Inter,sans-serif;font-size:1.3rem;color:#fff;-webkit-text-fill-color:#fff;background:none}
+.dashhead .btn.ghost{background:#d93030;color:#fff;border:0}
+.tab{border-radius:5px;background:#0a1a44;border-color:#2a4a9a}
+.tab.on{background:linear-gradient(135deg,#fff1b8,var(--gold2))}
+#adminTabs .tab{border-radius:5px}
+.kpi{border-radius:8px}.kpi b{font-family:Inter,sans-serif;color:#fff;font-size:1.9rem}
+th{background:#0a1a44;color:#fff;font-size:.72rem}
+td{font-size:.82rem}
+.acts .btn.sm:not(.bad){background:#1f9d57;color:#fff;box-shadow:none}
+.acts .btn.sm.bad{background:#d93030;color:#fff;box-shadow:none}
+#v-super .card.scroll,#v-admin .card.scroll{border-radius:8px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1b8"/><stop offset=".5" stop-color="#f5d27a"/><stop offset="1" stop-color="#b8841f"/></linearGradient>
+<linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c3a8a"/><stop offset="1" stop-color="#050b1f"/></linearGradient>
+<symbol id="logo" viewBox="0 0 200 220">
+ <path d="M100 8 L184 38 V110 C184 164 146 198 100 214 C54 198 16 164 16 110 V38 Z" fill="url(#sh)" stroke="url(#g)" stroke-width="5"/>
+ <path d="M100 22 L170 47 V110 C170 154 140 183 100 198 C60 183 30 154 30 110 V47 Z" fill="none" stroke="url(#g)" stroke-width="1.5" opacity=".6"/>
+ <path d="M52 128 L44 78 L74 100 L100 62 L126 100 L156 78 L148 128 Z" fill="url(#g)"/>
+ <rect x="52" y="132" width="96" height="12" rx="3" fill="url(#g)"/>
+ <circle cx="44" cy="74" r="7" fill="url(#g)"/><circle cx="100" cy="56" r="8" fill="url(#g)"/><circle cx="156" cy="74" r="7" fill="url(#g)"/>
+ <circle cx="100" cy="118" r="6" fill="#0b1a3a"/>
+</symbol>
+<symbol id="i-sun" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"><circle cx="24" cy="24" r="8" fill="url(#g)"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.9 9.9l4.2 4.2M33.9 33.9l4.2 4.2M9.9 38.1l4.2-4.2M33.9 14.1l4.2-4.2"/></g></symbol>
+<symbol id="i-moon" viewBox="0 0 48 48"><path d="M30 6a18 18 0 1 0 12 30A15 15 0 0 1 30 6z" fill="url(#g)"/></symbol>
+<symbol id="i-doc" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 5h17l8 8v30H12z"/><path d="M28 5v9h9M18 22h14M18 29h14M18 36h9"/></g></symbol>
+<symbol id="i-mail" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="10" width="38" height="28" rx="3"/><path d="M6 12l18 14 18-14"/></g></symbol>
+<symbol id="i-search" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"><circle cx="21" cy="21" r="12"/><path d="M30 30l13 13"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"><path d="M24 4l16 6v12c0 11-7 18-16 22C15 40 8 33 8 22V10z"/><path d="M16 24l6 6 11-12"/></g></symbol>
+<symbol id="i-clock" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="2.8" stroke-linecap="round"><circle cx="24" cy="24" r="18"/><path d="M24 12v13l9 5"/></g></symbol>
+<symbol id="i-help" viewBox="0 0 48 48"><g fill="none" stroke="url(#g)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 28v-6a16 16 0 0 1 32 0v6"/><rect x="5" y="26" width="8" height="12" rx="3"/><rect x="35" y="26" width="8" height="12" rx="3"/><path d="M40 38c0 4-4 6-10 6"/></g></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></g></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<header><div class="wrap nav">
+  <a class="brand" data-go="top"><svg><use href="#logo"/></svg><b class="gold">ONLY PREMIUM<span>TRUSTED CUSTOMER</span></b></a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <nav id="nav">
+    <a data-go="top">Home</a><a data-go="how">How It Works</a><a data-go="order" class="cta">Order Now</a><a data-go="results">Results</a>
+  </nav>
+</div></header>
+
+<!-- HOME -->
+<main id="v-home" class="view on">
+<div class="wrap">
+  <div class="hero" id="top">
+    <div>
+      <h1 class="gold">ONLY VIP<br>CUSTOMER</h1>
+      <div class="sub">Your Numbers. Your Order.</div>
+      <p>Choose your 5-digit ticket number, select quantity and time slot for your order. Each order remains <b>Pending</b> until approved by an authorised admin, and if not confirmed, it will be closed automatically 5 minutes before the slot time.</p>
+      <p style="margin-top:22px"><a class="btn" data-go="order">Start Your Order</a> &nbsp; <a class="btn ghost" data-go="how">How It Works</a></p>
+    </div>
+    <div class="crown"><svg viewBox="0 0 320 340" aria-hidden="true"><g fill="url(#g)" opacity=".95"><ellipse cx="137.1" cy="300.0" rx="6" ry="15" transform="rotate(120.0 137.1 300.0)"/><ellipse cx="113.3" cy="293.5" rx="6" ry="15" transform="rotate(130.7 113.3 293.5)"/><ellipse cx="91.2" cy="282.6" rx="6" ry="15" transform="rotate(141.4 91.2 282.6)"/><ellipse cx="71.4" cy="267.9" rx="6" ry="15" transform="rotate(152.1 71.4 267.9)"/><ellipse cx="54.8" cy="249.7" rx="6" ry="15" transform="rotate(162.9 54.8 249.7)"/><ellipse cx="41.8" cy="228.8" rx="6" ry="15" transform="rotate(173.6 41.8 228.8)"/><ellipse cx="32.9" cy="205.8" rx="6" ry="15" transform="rotate(184.3 32.9 205.8)"/><ellipse cx="28.5" cy="181.5" rx="6" ry="15" transform="rotate(195.0 28.5 181.5)"/><ellipse cx="28.7" cy="156.9" rx="6" ry="15" transform="rotate(205.7 28.7 156.9)"/><ellipse cx="33.4" cy="132.7" rx="6" ry="15" transform="rotate(216.4 33.4 132.7)"/><ellipse cx="42.5" cy="109.8" rx="6" ry="15" transform="rotate(227.1 42.5 109.8)"/><ellipse cx="55.8" cy="89.0" rx="6" ry="15" transform="rotate(237.9 55.8 89.0)"/><ellipse cx="72.7" cy="71.0" rx="6" ry="15" transform="rotate(248.6 72.7 71.0)"/><ellipse cx="92.6" cy="56.5" rx="6" ry="15" transform="rotate(259.3 92.6 56.5)"/><ellipse cx="114.9" cy="46.0" rx="6" ry="15" transform="rotate(270.0 114.9 46.0)"/><ellipse cx="131.9" cy="282.6" rx="5" ry="13" transform="rotate(124.0 131.9 282.6)"/><ellipse cx="111.5" cy="275.4" rx="5" ry="13" transform="rotate(134.7 111.5 275.4)"/><ellipse cx="92.8" cy="264.5" rx="5" ry="13" transform="rotate(145.4 92.8 264.5)"/><ellipse cx="76.4" cy="250.4" rx="5" ry="13" transform="rotate(156.1 76.4 250.4)"/><ellipse cx="62.9" cy="233.4" rx="5" ry="13" transform="rotate(166.9 62.9 233.4)"/><ellipse cx="52.8" cy="214.3" rx="5" ry="13" transform="rotate(177.6 52.8 214.3)"/><ellipse cx="46.4" cy="193.6" rx="5" ry="13" transform="rotate(188.3 46.4 193.6)"/><ellipse cx="44.0" cy="172.0" rx="5" ry="13" transform="rotate(199.0 44.0 172.0)"/><ellipse cx="45.7" cy="150.4" rx="5" ry="13" transform="rotate(209.7 45.7 150.4)"/><ellipse cx="51.3" cy="129.5" rx="5" ry="13" transform="rotate(220.4 51.3 129.5)"/><ellipse cx="60.7" cy="110.0" rx="5" ry="13" transform="rotate(231.1 60.7 110.0)"/><ellipse cx="73.6" cy="92.6" rx="5" ry="13" transform="rotate(241.9 73.6 92.6)"/><ellipse cx="89.5" cy="77.9" rx="5" ry="13" transform="rotate(252.6 89.5 77.9)"/><ellipse cx="107.9" cy="66.4" rx="5" ry="13" transform="rotate(263.3 107.9 66.4)"/><ellipse cx="128.0" cy="58.5" rx="5" ry="13" transform="rotate(274.0 128.0 58.5)"/><ellipse cx="182.9" cy="300.0" rx="6" ry="15" transform="rotate(-80.0 182.9 300.0)"/><ellipse cx="206.7" cy="293.5" rx="6" ry="15" transform="rotate(-90.7 206.7 293.5)"/><ellipse cx="228.8" cy="282.6" rx="6" ry="15" transform="rotate(-101.4 228.8 282.6)"/><ellipse cx="248.6" cy="267.9" rx="6" ry="15" transform="rotate(-112.1 248.6 267.9)"/><ellipse cx="265.2" cy="249.7" rx="6" ry="15" transform="rotate(-122.9 265.2 249.7)"/><ellipse cx="278.2" cy="228.8" rx="6" ry="15" transform="rotate(-133.6 278.2 228.8)"/><ellipse cx="287.1" cy="205.8" rx="6" ry="15" transform="rotate(-144.3 287.1 205.8)"/><ellipse cx="291.5" cy="181.5" rx="6" ry="15" transform="rotate(-155.0 291.5 181.5)"/><ellipse cx="291.3" cy="156.9" rx="6" ry="15" transform="rotate(-165.7 291.3 156.9)"/><ellipse cx="286.6" cy="132.7" rx="6" ry="15" transform="rotate(-176.4 286.6 132.7)"/><ellipse cx="277.5" cy="109.8" rx="6" ry="15" transform="rotate(-187.1 277.5 109.8)"/><ellipse cx="264.2" cy="89.0" rx="6" ry="15" transform="rotate(-197.9 264.2 89.0)"/><ellipse cx="247.3" cy="71.0" rx="6" ry="15" transform="rotate(-208.6 247.3 71.0)"/><ellipse cx="227.4" cy="56.5" rx="6" ry="15" transform="rotate(-219.3 227.4 56.5)"/><ellipse cx="205.1" cy="46.0" rx="6" ry="15" transform="rotate(-230.0 205.1 46.0)"/><ellipse cx="188.1" cy="282.6" rx="5" ry="13" transform="rotate(-84.0 188.1 282.6)"/><ellipse cx="208.5" cy="275.4" rx="5" ry="13" transform="rotate(-94.7 208.5 275.4)"/><ellipse cx="227.2" cy="264.5" rx="5" ry="13" transform="rotate(-105.4 227.2 264.5)"/><ellipse cx="243.6" cy="250.4" rx="5" ry="13" transform="rotate(-116.1 243.6 250.4)"/><ellipse cx="257.1" cy="233.4" rx="5" ry="13" transform="rotate(-126.9 257.1 233.4)"/><ellipse cx="267.2" cy="214.3" rx="5" ry="13" transform="rotate(-137.6 267.2 214.3)"/><ellipse cx="273.6" cy="193.6" rx="5" ry="13" transform="rotate(-148.3 273.6 193.6)"/><ellipse cx="276.0" cy="172.0" rx="5" ry="13" transform="rotate(-159.0 276.0 172.0)"/><ellipse cx="274.3" cy="150.4" rx="5" ry="13" transform="rotate(-169.7 274.3 150.4)"/><ellipse cx="268.7" cy="129.5" rx="5" ry="13" transform="rotate(-180.4 268.7 129.5)"/><ellipse cx="259.3" cy="110.0" rx="5" ry="13" transform="rotate(-191.1 259.3 110.0)"/><ellipse cx="246.4" cy="92.6" rx="5" ry="13" transform="rotate(-201.9 246.4 92.6)"/><ellipse cx="230.5" cy="77.9" rx="5" ry="13" transform="rotate(-212.6 230.5 77.9)"/><ellipse cx="212.1" cy="66.4" rx="5" ry="13" transform="rotate(-223.3 212.1 66.4)"/><ellipse cx="192.0" cy="58.5" rx="5" ry="13" transform="rotate(-234.0 192.0 58.5)"/></g><use href="#logo" x="62" y="48" width="196" height="216"/><polygon points="160,176 164,186 175,186 166,192 170,203 160,196 150,203 154,192 145,186 156,186" fill="url(#g)"/></svg></div>
+  </div>
+  <div class="slots" id="slotCards"></div>
+</div>
+
+<section id="how"><div class="wrap">
+  <h2 class="gold sh">How It Works</h2>
+  <div class="grid3">
+    <div class="card step"><div class="sthead"><div class="n">1</div><svg class="ico"><use href="#i-doc"/></svg></div><h3>Build your order</h3><p>Enter your details, add one or more 5-digit tickets and quantities, then select a time slot.</p></div>
+    <div class="card step"><div class="sthead"><div class="n">2</div><svg class="ico"><use href="#i-mail"/></svg></div><h3>Receive a reference</h3><p>Get your order reference immediately. It remains <b>Pending</b> until approved by an admin.</p></div>
+    <div class="card step"><div class="sthead"><div class="n">3</div><svg class="ico"><use href="#i-search"/></svg></div><h3>Track the status</h3><p>Use your reference and mobile number to check each ticket's status. If not confirmed, it will be closed 5 minutes before the slot time.</p></div>
+  </div>
+</div></section>
+
+<section id="order"><div class="wrap">
+  <div class="order">
+    <div class="card ocard">
+      <div class="ohead"><svg class="ico"><use href="#i-doc"/></svg><div><h2 class="gold">Place Your Order</h2><div class="olead">Confirmation deadlines: 1:00 PM → 12:55 PM · 4:00 PM → 3:55 PM · 8:00 PM → 7:55 PM</div></div></div>
+      <div class="formpanel">
+        <div class="row3">
+          <div><label for="fName">Full Name *</label><input id="fName" maxlength="60" autocomplete="name" placeholder="Enter your full name"></div>
+          <div><label for="fMobile">Mobile Number *</label><input id="fMobile" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="10 digit mobile number"></div>
+          <div><label for="fTicket">5-digit ticket number *</label><input id="fTicket" inputmode="numeric" maxlength="5" placeholder="Enter 5 digit number"></div>
+        </div>
+        <div class="qrow">
+          <div class="qcol"><label for="fQty">Quantity (SEM) *</label><select id="fQty" aria-label="Quantity (SEM)"></select><div class="qtys" id="qtyChips"></div></div>
+          <button class="btn sm dark" id="addBtn" type="button">Add Entry</button>
+        </div>
+        <div class="boxes">
+          <div class="subbox"><h4>Added Tickets</h4><div class="list" id="entryList"></div></div>
+          <div class="subbox"><h4>Time Slot</h4><div class="slotpick" id="slotPick"></div>
+            <p style="margin-top:12px"><button class="btn" id="submitBtn" type="button" style="width:100%">Submit Order</button></p></div>
+        </div>
+        <div id="orderMsg"></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:20px">
+      <div class="card"><h3 class="gold" style="margin-bottom:10px">Order Summary</h3>
+        <dl class="sum"><div><dt>Entries :</dt><dd id="sEntries">0</dd></div><div><dt>Total tickets :</dt><dd id="sTotal">0</dd></div><div><dt>Time slot :</dt><dd id="sSlot">—</dd></div><div><dt>Status after submission :</dt><dd><span class="pill Pending">Pending</span></dd></div></dl>
+      </div>
+      <div class="card"><h3 class="gold" style="margin-bottom:6px">Track Your Order</h3>
+        <label for="tRef">Order reference :</label><input id="tRef" placeholder="Enter order reference">
+        <label for="tMob">Mobile number :</label><input id="tMob" inputmode="numeric" maxlength="10" placeholder="Enter 10 digit mobile number">
+        <p style="margin-top:14px;display:flex;gap:8px"><button class="btn sm" id="trackBtn" type="button">View Status</button><button class="btn sm bad" id="cancelBtn" type="button">Cancel Pending</button></p>
+        <div id="trackOut"></div>
+        <div class="legend"><b>Ticket Status</b><div><span class="pill Pending">Pending</span><span class="pill Confirmed">Confirmed</span><span class="pill Rejected">Rejected</span><span class="pill Expired">Expired</span><span class="pill Cancelled">Cancelled</span></div></div>
+      </div>
+      <div id="demoNote" class="msg info" style="display:none;margin:0"><b>Demo mode.</b> No backend URL is configured, so orders are stored only in this browser. See README.md to connect Google Sheets.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="results"><div class="wrap">
+  <h2 class="gold sh">Lottery Results</h2><div class="lead lft">Published by our team. Compare your own ticket numbers with the result sheet.</div>
+  <div class="rlist" id="resultsList"><p class="lead" style="margin:0">Loading results…</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="gold sh">Why Choose Us?</h2>
+  <div class="benefits">
+    <div class="card benefit"><div class="ic"><svg><use href="#i-shield"/></svg></div><div class="bt"><h3>Trusted Platform</h3><p>Private orders and role-based access.</p></div></div>
+    <div class="card benefit"><div class="ic"><svg><use href="#i-doc"/></svg></div><div class="bt"><h3>Clear Order Process</h3><p>Every entry shows its own status.</p></div></div>
+    <div class="card benefit"><div class="ic"><svg><use href="#i-clock"/></svg></div><div class="bt"><h3>Multiple Time Slots</h3><p>1:00 PM, 4:00 PM and 8:00 PM.</p></div></div>
+    <div class="card benefit"><div class="ic"><svg><use href="#i-help"/></svg></div><div class="bt"><h3>Customer Support</h3><p>Help with your order reference.</p></div></div>
+  </div>
+</div></section>
+</main>
+
+<!-- LOGIN -->
+<main id="v-login" class="view"><div class="wrap"><div class="card login">
+  <h2 id="loginTitle" style="margin:0 0 14px">Admin Login</h2>
+  <div class="ltabs"><button type="button" data-p="admin">Admin Login</button><button type="button" data-p="super">Super Admin Login</button></div>
+  <label for="lUser">Username</label><input id="lUser" autocomplete="username">
+  <label for="lPass">Password</label><input id="lPass" type="password" autocomplete="current-password">
+  <div id="loginMsg"></div>
+  <p style="margin-top:18px"><button class="btn" id="loginBtn" style="width:100%">Sign In</button></p>
+</div></div></main>
+
+<!-- ADMIN -->
+<main id="v-admin" class="view"><div class="wrap">
+  <div class="dashhead"><h2 class="gold" id="adminTitle">Admin Dashboard</h2><button class="btn sm ghost" data-logout>Sign Out</button></div>
+  <div class="lead" style="text-align:left">You only see orders assigned to you. Orders cannot be confirmed after their deadline.</div>
+  <div class="tabs" id="adminTabs"></div>
+  <div id="adminMsg"></div>
+  <div class="card scroll" id="adminTable"></div>
+</div></main>
+
+<!-- SUPER -->
+<main id="v-super" class="view"><div class="wrap">
+  <div class="dashhead"><h2 class="gold">Super Admin Control</h2><button class="btn sm ghost" data-logout>Sign Out</button></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="tabs" id="superTabs">
+    <button class="tab on" data-t="orders">Orders</button><button class="tab" data-t="admins">Administrators</button>
+    <button class="tab" data-t="perf">Performance</button><button class="tab" data-t="audit">Audit Trail</button><button class="tab" data-t="reports">Reports</button><button class="tab" data-t="results">Lottery Results</button>
+  </div>
+  <div id="superMsg"></div>
+  <div id="superBody"></div>
+</div></main>
+
+<footer><div class="wrap fgrid">
+  <a class="brand"><svg width="40" height="40"><use href="#logo"/></svg><b class="gold">ONLY PREMIUM<span>TRUSTED CUSTOMER</span></b></a>
+  <div class="fmid"><div>ONLY VIP CUSTOMER · Orders are private and visible only to authorised staff.</div>
+    <div class="flinks"><a id="navAdmin">Admin Login</a><span>·</span><a id="navSuper">Super Admin</a></div></div>
+  <div class="fend"><div id="conn"></div><div>© <span id="yr"></span> Only Premium Trusted Customer. All rights reserved.</div></div>
+</div></footer>
+
+<div class="bnav" role="navigation" aria-label="Quick menu">
+  <a data-go="top"><svg><use href="#i-home"/></svg>Home</a><a data-go="how"><svg><use href="#i-doc"/></svg>How It Works</a><a data-go="order"><svg><use href="#i-list"/></svg>Order Now</a><a data-go="results"><svg><use href="#i-user"/></svg>Results</a><a id="bMenu"><svg><use href="#i-menu"/></svg>Menu</a>
+</div>
+
+<script>
+/* ============ CONFIG ============ */
+const API_URL = "https://script.google.com/macros/s/AKfycbzb2b-xm8yiLKUubBXKHzTyt0pMvxbEc-ZxKT7vpaveEg6ke4Ks6duhm35T7wTRqAMO/exec";   // paste your deployed Google Apps Script Web App URL here (see README.md)
+/* ================================= */
+const SLOTS=[{label:'1:00 PM',h:13,m:0,dl:'12:55 PM'},{label:'4:00 PM',h:16,m:0,dl:'3:55 PM'},{label:'8:00 PM',h:20,m:0,dl:'7:55 PM'}];
+const QTYS=[5,10,25,50,100,250], CUT=5*60000;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let skew=0, entries=[], reqId=crypto.randomUUID(), session=null, portal='admin';
+try{session=JSON.parse(sessionStorage.getItem('vip_s')||'null')}catch(e){}
+const now=()=>Date.now()+skew;
+const dayStart=ms=>Math.floor((ms+19800000)/86400000)*86400000-19800000;
+const deadline=l=>{const s=SLOTS.find(x=>x.label===l);return dayStart(now())+s.h*3600000+s.m*60000-CUT};
+const fmtT=ms=>new Date(ms).toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'});
+const fmtCd=ms=>{let s=Math.max(0,Math.floor(ms/1000));const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0');return `${h}:${m}:${String(s%60).padStart(2,'0')}`};
+const msg=(el,t,k='err')=>{el.innerHTML=t?`<div class="msg ${k}">${t}</div>`:''};
+
+/* ---------- API (real backend, or local demo) ---------- */
+async function api(action,data={}){
+  if(!API_URL) return demoApi(action,data);
+  const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,token:session&&session.token,...data})});
+  const j=await r.json(); if(!j.ok) throw new Error(j.error||'Request failed'); return j;
+}
+function demoApi(a,d){
+  const db=JSON.parse(localStorage.getItem('vip_demo')||'[]'), save=()=>localStorage.setItem('vip_demo',JSON.stringify(db));
+  if(a==='slots') return {ok:true,serverNow:Date.now()};
+  if(a==='placeOrder'){
+    const ref='VIP-'+new Date().toISOString().slice(2,10).replace(/-/g,'')+'-'+Math.random().toString(36).slice(2,7).toUpperCase();
+    const dl=deadline(d.slot); if(Date.now()>=dl) throw new Error('This slot is closed for today.');
+    d.entries.forEach((e,i)=>db.push({ref,mobile:d.mobile,name:d.name,slot:d.slot,ticket:e.ticket,qty:e.qty,dl,st:'Pending'})); save(); return {ok:true,ref,deadline:dl};
+  }
+  if(a==='trackOrder'||a==='cancelOrder'){
+    const rows=db.filter(o=>o.ref===d.ref.toUpperCase()&&o.mobile===d.mobile&&o.st!=='Cancelled'); if(!rows.length) throw new Error('No matching order found.');
+    rows.forEach(o=>{if(o.st==='Pending'&&Date.now()>=o.dl)o.st='Expired'});
+    if(a==='cancelOrder'){let n=0;rows.forEach(o=>{if(o.st==='Pending'){o.st='Cancelled';n++}});save();if(!n)throw new Error('Only pending orders can be cancelled.');return {ok:true}}
+    save(); return {ok:true,ref:d.ref,name:rows[0].name,slot:rows[0].slot,deadline:rows[0].dl,entries:rows.map(o=>({ticket:o.ticket,qty:o.qty,status:o.st}))};
+  }
+  if(a==='publicResults') return {ok:true,results:[]};
+  throw new Error('Admin features need the Google Apps Script backend (see README.md).');
+}
+
+/* ---------- navigation ---------- */
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));window.scrollTo(0,0);$('#nav').classList.remove('open')}
+function goSection(id){show('home');setTimeout(()=>{id==='top'?window.scrollTo({top:0,behavior:'smooth'}):document.getElementById(id).scrollIntoView({behavior:'smooth'})},30)}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){e.preventDefault();goSection(g.dataset.go)}if(e.target.closest('[data-logout]'))logout()});
+$('#burger').onclick=()=>$('#nav').classList.toggle('open');
+$('#bMenu').onclick=()=>{window.scrollTo(0,0);$('#nav').classList.toggle('open')};
+function openLogin(p){portal=p;$$('.ltabs button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));$('#loginTitle').textContent=p==='super'?'Super Admin Login':'Admin Login';$('#loginMsg').innerHTML='';$('#lUser').value='';$('#lPass').value='';show('login')}
+$$('.ltabs button').forEach(b=>b.onclick=()=>openLogin(b.dataset.p));
+$('#navAdmin').onclick=()=>session&&session.role==='admin'?enter():openLogin('admin');
+$('#navSuper').onclick=()=>session&&session.role==='super'?enter():openLogin('super');
+$('#yr').textContent=new Date().getFullYear();
+if(!API_URL)$('#demoNote').style.display='block';
+
+/* ---------- slots & countdown ---------- */
+async function syncClock(){
+  const c=$('#conn');
+  if(!API_URL){c.textContent='Backend: not connected (demo mode)';return}
+  try{const r=await api('health');await api('slots').then(s=>{skew=s.serverNow-Date.now()});c.textContent=r.sheetsConnected?'Backend: connected to Google Sheets':'Backend: reachable, sheet not confirmed'}
+  catch(e){c.textContent='Backend: connection failed. Check API_URL and deployment.'}
+}
+const cdHtml=(open,left)=>open?`<small>Closes in</small><b>${fmtCd(left)}</b>`:'<small>Closed for today</small>';
+const slotIc=s=>`<svg class="sic2"><use href="#${s.h>=18?'i-moon':'i-sun'}"/></svg>`;
+function renderSlots(){
+  $('#slotCards').innerHTML=SLOTS.map(s=>{const left=deadline(s.label)-now(),open=left>0;
+    return `<div class="card slot ${open?'':'closed'}"><svg class="sic"><use href="#${s.h>=18?'i-moon':'i-sun'}"/></svg><div><div class="t gold">${s.label}</div><div class="d">Slot<br>Confirmation deadline ${s.dl}</div><div class="cd">${cdHtml(open,left)}</div></div></div>`}).join('');
+  const sel=(document.querySelector('input[name=slot]:checked')||{}).value;
+  if(!$('#slotPick').children.length||true){
+    $('#slotPick').innerHTML=SLOTS.map(s=>{const open=deadline(s.label)>now();
+      return `<label><input type="radio" name="slot" value="${s.label}" ${open?'':'disabled'} ${sel===s.label&&open?'checked':''}><span>${slotIc(s)}<b>${s.label}</b><small>Deadline ${s.dl}</small></span></label>`}).join('');
+    $$('input[name=slot]').forEach(i=>i.onchange=summary);
+  }
+}
+setInterval(()=>{ // light refresh: only update countdown text, keep selection
+  $$('#slotCards .slot').forEach((c,i)=>{const left=deadline(SLOTS[i].label)-now(),open=left>0;c.classList.toggle('closed',!open);c.querySelector('.cd').innerHTML=cdHtml(open,left)});
+  $$('input[name=slot]').forEach(i=>{if(deadline(i.value)<=now()){i.disabled=true;if(i.checked){i.checked=false;summary()}}});
+},1000);
+
+/* ---------- order form ---------- */
+$('#fQty').innerHTML=QTYS.map(q=>`<option value="${q}">${q} SEM</option>`).join('');
+$('#fQty').value='10';
+$('#qtyChips').innerHTML=QTYS.map(q=>`<button type="button" data-q="${q}" class="${q===10?'on':''}">${q}</button>`).join('');
+$$('#qtyChips button').forEach(b=>b.onclick=()=>{$('#fQty').value=b.dataset.q;$$('#qtyChips button').forEach(x=>x.classList.toggle('on',x===b))});
+['fMobile','fTicket','tMob'].forEach(id=>$('#'+id).addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,'')));
+function renderEntries(){
+  $('#entryList').innerHTML=entries.map((e,i)=>`<div class="entry"><span><b>${esc(e.ticket)}</b> &nbsp; ${e.qty} SEM</span><button class="x" data-rm="${i}" aria-label="Remove">✕</button></div>`).join('');
+  $$('[data-rm]').forEach(b=>b.onclick=()=>{entries.splice(+b.dataset.rm,1);renderEntries()});summary();
+}
+function summary(){
+  $('#sEntries').textContent=entries.length;$('#sTotal').textContent=entries.reduce((a,e)=>a+e.qty,0);
+  const s=document.querySelector('input[name=slot]:checked');$('#sSlot').textContent=s?s.value:'—';
+}
+$('#addBtn').onclick=()=>{
+  const t=$('#fTicket').value.trim(),q=+$('#fQty').value,m=$('#orderMsg');
+  if(!/^\d{5}$/.test(t))return msg(m,'Ticket number must be exactly 5 digits.');
+  if(entries.some(e=>e.ticket===t))return msg(m,'That ticket number is already in this order.');
+  if(entries.length>=50)return msg(m,'Maximum 50 entries per order.');
+  entries.push({ticket:t,qty:q});$('#fTicket').value='';msg(m,'');renderEntries();$('#fTicket').focus();
+};
+$('#fTicket').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#addBtn').click()}});
+$('#submitBtn').onclick=async()=>{
+  const m=$('#orderMsg'),name=$('#fName').value.trim(),mobile=$('#fMobile').value.trim(),slot=(document.querySelector('input[name=slot]:checked')||{}).value;
+  if(name.length<2)return msg(m,'Please enter your full name.');
+  if(!/^[6-9]\d{9}$/.test(mobile))return msg(m,'Enter a valid 10-digit mobile number.');
+  if(!entries.length)return msg(m,'Add at least one ticket entry.');
+  if(!slot)return msg(m,'Please select an open time slot.');
+  const b=$('#submitBtn');b.disabled=true;b.textContent='Submitting…';
+  try{
+    const r=await api('placeOrder',{requestId:reqId,name,mobile,slot,entries});
+    const tot=entries.reduce((a,e)=>a+e.qty,0);
+    m.innerHTML=`<div class="msg okm"><div>Order received</div><div class="ref">${esc(r.ref)}</div><p>${entries.length} entr${entries.length>1?'ies':'y'} · ${tot} tickets · ${esc(slot)}</p><p><span class="pill Pending">Pending</span> Your order is awaiting confirmation by an administrator. Orders not confirmed before the deadline expire automatically. Save this reference and use it with your mobile number to track status.</p></div>`;
+    $('#tRef').value=r.ref;$('#tMob').value=mobile;entries=[];renderEntries();reqId=crypto.randomUUID();
+  }catch(e){msg(m,esc(e.message))}finally{b.disabled=false;b.textContent='Submit Order'}
+};
+async function track(cancel){
+  const o=$('#trackOut'),ref=$('#tRef').value.trim(),mobile=$('#tMob').value.trim();
+  if(!ref||!/^\d{10}$/.test(mobile))return msg(o,'Enter your order reference and 10-digit mobile number.');
+  try{
+    if(cancel){if(!confirm('Cancel all pending entries in this order?'))return;await api('cancelOrder',{ref,mobile});msg(o,'Pending entries were cancelled.','okm');return}
+    const r=await api('trackOrder',{ref,mobile});
+    o.innerHTML=`<div style="margin-top:12px"><b>${esc(r.ref)}</b> · ${esc(r.slot)}<br><small style="color:var(--muted)">Confirmation deadline ${fmtT(r.deadline)}</small><div class="list">${r.entries.map(e=>`<div class="entry"><span><b>${esc(e.ticket)}</b> ${e.qty} SEM</span><span class="pill ${e.status}">${e.status}</span></div>`).join('')}</div></div>`;
+  }catch(e){msg(o,esc(e.message))}
+}
+$('#trackBtn').onclick=()=>track(false);$('#cancelBtn').onclick=()=>track(true);
+
+/* ---------- auth ---------- */
+$('#loginBtn').onclick=async()=>{
+  const m=$('#loginMsg');
+  try{const r=await api('login',{username:$('#lUser').value,password:$('#lPass').value,portal});
+    session={token:r.token,role:r.role,name:r.name,username:r.username};sessionStorage.setItem('vip_s',JSON.stringify(session));enter();
+  }catch(e){msg(m,esc(e.message))}
+};
+$('#lPass').addEventListener('keydown',e=>{if(e.key==='Enter')$('#loginBtn').click()});
+async function logout(){try{await api('logout')}catch(e){}session=null;sessionStorage.removeItem('vip_s');show('home')}
+function enter(){if(!session)return openLogin('admin');session.role==='super'?(show('super'),loadSuper()):(show('admin'),loadAdmin())}
+function sessionFail(e,el){msg(el,esc(e.message));if(/Session expired/.test(e.message)){session=null;sessionStorage.removeItem('vip_s');setTimeout(()=>openLogin('admin'),1200)}}
+
+/* ---------- shared order table ---------- */
+function group(list){const m={};list.forEach(e=>{(m[e.ref]=m[e.ref]||{ref:e.ref,name:e.name,mobile:e.mobile,slot:e.slot,date:e.date,deadline:e.deadline,admin:e.admin,created:e.created,items:[]}).items.push(e)});
+  return Object.values(m).sort((a,b)=>String(b.created).localeCompare(String(a.created)))}
+function orderRows(orders,opt){
+  if(!orders.length)return '<p style="padding:14px;color:var(--muted)">No orders to show.</p>';
+  return `<table><thead><tr><th>Reference</th><th>Customer</th><th>Slot</th><th>Entries &amp; status</th>${opt.assign?'<th>Assigned</th>':''}${opt.decide?'<th>Action</th>':''}</tr></thead><tbody>${orders.map(o=>{
+    const pend=o.items.some(i=>i.status==='Pending'),open=o.deadline>now();
+    return `<tr><td><b>${esc(o.ref)}</b><br><small style="color:var(--muted)">${esc(o.created)}</small></td><td>${esc(o.name)}<br><small>${esc(o.mobile)}</small></td>
+    <td>${esc(o.slot)}<br><small style="color:var(--muted)">${esc(o.date)} · closes ${fmtT(o.deadline)}</small></td>
+    <td>${o.items.map(i=>`<div style="margin-bottom:4px"><b>${esc(i.ticket)}</b> ${i.qty} SEM <span class="pill ${i.status}">${i.status}</span></div>`).join('')}</td>
+    ${opt.assign?`<td>${esc(o.admin||'—')}${pend?`<br><select data-asg="${esc(o.ref)}" style="margin-top:6px"><option value="">Reassign…</option>${opt.admins.filter(a=>a.active).map(a=>`<option value="${esc(a.username)}">${esc(a.username)}</option>`).join('')}</select>`:''}</td>`:''}
+    ${opt.decide?`<td>${pend?(open?`<div class="acts"><button class="btn sm" data-dec="confirm" data-ref="${esc(o.ref)}">Confirm</button><button class="btn sm bad" data-dec="reject" data-ref="${esc(o.ref)}">Reject</button></div>`:'<small style="color:var(--bad)">Deadline passed</small>'):'—'}</td>`:''}</tr>`}).join('')}</tbody></table>`;
+}
+
+/* ---------- admin dashboard ---------- */
+let aData=[],aTab='Pending';
+async function loadAdmin(){
+  $('#adminTitle').textContent='Admin Dashboard · '+session.name;
+  try{const r=await api('myOrders');aData=r.entries;skew=r.serverNow-Date.now();renderAdmin()}catch(e){sessionFail(e,$('#adminMsg'))}
+}
+function renderAdmin(){
+  const st=['Pending','Confirmed','Rejected','Cancelled','Expired'];
+  $('#adminTabs').innerHTML=st.map(s=>`<button class="tab ${s===aTab?'on':''}" data-s="${s}">${s} (${aData.filter(e=>e.status===s).length})</button>`).join('')+`<button class="tab ${aTab==='Results'?'on':''}" data-s="Results">Lottery Results</button><button class="tab" id="aRef">⟳ Refresh</button>`;
+  $$('#adminTabs [data-s]').forEach(b=>b.onclick=()=>{aTab=b.dataset.s;renderAdmin()});$('#aRef').onclick=loadAdmin;
+  if(aTab==='Results'){resultsManager($('#adminTable'),$('#adminMsg'));return}
+  const list=group(aData.filter(e=>e.status===aTab));
+  $('#adminTable').innerHTML=orderRows(list,{decide:true});
+  $$('#adminTable [data-dec]').forEach(b=>b.onclick=async()=>{
+    try{await api('decide',{ref:b.dataset.ref,decision:b.dataset.dec});msg($('#adminMsg'),'Order updated.','okm');loadAdmin()}catch(e){sessionFail(e,$('#adminMsg'));loadAdmin()}
+  });
+}
+
+/* ---------- super admin ---------- */
+let sTab='orders',sAdmins=[];
+$('#superTabs').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;sTab=b.dataset.t;$$('#superTabs .tab').forEach(x=>x.classList.toggle('on',x===b));loadSuper()};
+async function loadSuper(){
+  const m=$('#superMsg');msg(m,'');
+  try{
+    const st=await api('stats'),T=st.totals;
+    $('#kpis').innerHTML=['Pending','Confirmed','Rejected','Cancelled','Expired'].map(k=>`<div class="card kpi"><b>${T[k]}</b><span class="pill ${k}">${k}</span></div>`).join('');
+    sAdmins=(await api('listAdmins')).admins;
+    if(sTab==='orders')await sOrders();else if(sTab==='admins')sAdminsView();else if(sTab==='perf')sPerf(st);else if(sTab==='audit')await sAudit();else if(sTab==='reports')await sReports();else await resultsManager($('#superBody'),$('#superMsg'));
+  }catch(e){sessionFail(e,m)}
+}
+async function sOrders(){
+  const body=$('#superBody'),f=window._f||{date:'',slot:'',status:''};
+  const r=await api('allOrders',f);
+  body.innerHTML=`<div class="filters card"><div><label>Date</label><input type="date" id="fDate" value="${esc(f.date)}"></div>
+  <div><label>Time slot</label><select id="fSlot"><option value="">All</option>${SLOTS.map(s=>`<option ${f.slot===s.label?'selected':''}>${s.label}</option>`).join('')}</select></div>
+  <div><label>Status</label><select id="fStat"><option value="">All</option>${['Pending','Confirmed','Rejected','Cancelled','Expired'].map(s=>`<option ${f.status===s?'selected':''}>${s}</option>`).join('')}</select></div>
+  <button class="btn sm" id="fGo">Apply</button><button class="btn sm ghost" id="fClr">Clear</button></div>
+  <div class="card scroll">${orderRows(group(r.entries),{assign:true,admins:sAdmins})}</div><p class="lead" style="margin-top:8px">${r.total} entries match (all records, including cancelled, are retained).</p>`;
+  $('#fGo').onclick=()=>{window._f={date:$('#fDate').value,slot:$('#fSlot').value,status:$('#fStat').value};loadSuper()};
+  $('#fClr').onclick=()=>{window._f=null;loadSuper()};
+  $$('[data-asg]').forEach(s=>s.onchange=async()=>{if(!s.value)return;try{await api('assignOrder',{ref:s.dataset.asg,admin:s.value});loadSuper()}catch(e){sessionFail(e,$('#superMsg'))}});
+}
+function sAdminsView(){
+  $('#superBody').innerHTML=`<div class="order"><div class="card scroll"><table><thead><tr><th>Username</th><th>Name</th><th>Status</th><th>Last login</th><th></th></tr></thead><tbody>${sAdmins.map(a=>`<tr><td>${esc(a.username)}</td><td>${esc(a.name)}</td><td><span class="pill ${a.active?'Confirmed':'Rejected'}">${a.active?'Active':'Disabled'}</span></td><td>${esc(a.lastLogin||'—')}</td><td><button class="btn sm ghost" data-edit="${esc(a.username)}">Edit</button></td></tr>`).join('')||'<tr><td colspan=5>No administrators yet.</td></tr>'}</tbody></table></div>
+  <div class="card"><h3 class="gold" id="afT">Add Administrator</h3><label>Username</label><input id="aU" maxlength="20"><label>Name</label><input id="aN" maxlength="50">
+  <label>Password <small style="color:var(--muted)">(min 8; leave blank to keep when editing)</small></label><input id="aP" type="password" autocomplete="new-password">
+  <label>Status</label><select id="aA"><option value="1">Active</option><option value="0">Disabled</option></select><p style="margin-top:14px"><button class="btn sm" id="aSave">Save</button></p></div></div>`;
+  $$('[data-edit]').forEach(b=>b.onclick=()=>{const a=sAdmins.find(x=>x.username===b.dataset.edit);$('#aU').value=a.username;$('#aU').readOnly=true;$('#aN').value=a.name;$('#aA').value=a.active?'1':'0';$('#afT').textContent='Edit Administrator'});
+  $('#aSave').onclick=async()=>{try{await api('saveAdmin',{username:$('#aU').value,name:$('#aN').value,password:$('#aP').value,active:$('#aA').value==='1'});msg($('#superMsg'),'Administrator saved.','okm');loadSuper()}catch(e){sessionFail(e,$('#superMsg'))}};
+}
+function sPerf(st){
+  $('#superBody').innerHTML=`<div class="card scroll"><table><thead><tr><th>Administrator</th><th>Pending</th><th>Confirmed</th><th>Rejected</th><th>Expired</th><th>Cancelled</th></tr></thead><tbody>${st.admins.map(a=>`<tr><td>${esc(a.name)} <small>(${esc(a.admin)})</small></td><td>${a.Pending}</td><td><b style="color:var(--ok)">${a.Confirmed}</b></td><td>${a.Rejected}</td><td>${a.Expired}</td><td>${a.Cancelled}</td></tr>`).join('')}</tbody></table></div>`;
+}
+async function sAudit(){
+  const r=await api('auditLog',{});
+  $('#superBody').innerHTML=`<div class="card scroll"><table><thead><tr><th>Time</th><th>Administrator / actor</th><th>Order ref</th><th>Action</th><th>Details</th></tr></thead><tbody>${r.rows.map(x=>`<tr><td>${esc(x.ts)}</td><td>${esc(x.actor)} <small>(${esc(x.role)})</small></td><td>${esc(x.ref)}</td><td>${esc(x.action)}</td><td>${esc(x.details)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+async function sReports(){
+  const r=await api('getReports');
+  $('#superBody').innerHTML=`<div class="filters"><div><label>Date</label><input type="date" id="rDate"></div><button class="btn sm" id="rGo">Build / Refresh Report</button></div><div class="card scroll"><table><thead><tr><th>Date</th><th>Slot</th><th>Entries</th><th>Pending</th><th>Confirmed</th><th>Rejected</th><th>Cancelled</th><th>Expired</th><th>Confirmed tickets</th></tr></thead><tbody>${r.rows.map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.slot)}</td><td>${x.entries}</td><td>${x.pending}</td><td>${x.confirmed}</td><td>${x.rejected}</td><td>${x.cancelled}</td><td>${x.expired}</td><td>${x.tickets}</td></tr>`).join('')||'<tr><td colspan=9>No reports yet.</td></tr>'}</tbody></table></div>`;
+  $('#rGo').onclick=async()=>{try{await api('buildReport',{date:$('#rDate').value});loadSuper()}catch(e){sessionFail(e,$('#superMsg'))}};
+}
+
+/* ---------- lottery results (upload / edit / publish / delete by staff; customers only read) ---------- */
+async function loadPublicResults(){
+  const box=$('#resultsList');
+  try{const r=await api('publicResults');
+    box.innerHTML=r.results.length?r.results.map(x=>`<div class="card rcard"><div><b class="gold" style="font-family:Cinzel,serif;font-size:1.1rem">${esc(x.title)}</b><div class="rmeta">${esc(x.date)}${x.slot?' · '+esc(x.slot):''}</div></div><pre class="rbody">${esc(x.content)}</pre></div>`).join(''):'<p class="lead" style="margin:0">No result has been published yet.</p>';
+  }catch(e){box.innerHTML='<p class="lead" style="margin:0">Results could not be loaded right now.</p>'}
+}
+async function resultsManager(el,msgEl){
+  msg(msgEl,'');
+  let list=[];try{list=(await api('staffResults')).results}catch(e){return sessionFail(e,msgEl)}
+  const ed=window._rEdit?list.find(x=>x.id===window._rEdit):null, q=s=>el.querySelector(s);
+  const today=new Date(now()+19800000).toISOString().slice(0,10);
+  el.innerHTML=`<div class="rgrid"><div>
+    <h3 class="gold">${ed?'Edit Result':'Upload Result'}</h3>
+    <div class="row"><div><label>Result date</label><input type="date" class="rDate" value="${esc(ed?ed.date:today)}"></div>
+    <div><label>Time slot</label><select class="rSlot"><option value="">Not specified</option>${SLOTS.map(s=>`<option ${ed&&ed.slot===s.label?'selected':''}>${s.label}</option>`).join('')}</select></div></div>
+    <label>Title</label><input class="rTitle" maxlength="80" value="${esc(ed?ed.title:'')}" placeholder="e.g. Result sheet">
+    <label>Result sheet text (paste it, or load a .txt / .csv file)</label>
+    <textarea class="rBody" maxlength="20000">${esc(ed?ed.content:'')}</textarea>
+    <input type="file" class="rFile" accept=".txt,.csv,text/plain,text/csv" style="margin-top:8px">
+    <div class="acts" style="margin-top:14px"><button class="btn sm rSaveP">Save &amp; Publish</button><button class="btn sm ghost rSaveD">Save as Draft</button>${ed?'<button class="btn sm ghost rCancel">Cancel edit</button>':''}</div>
+  </div><div><h3 class="gold">Saved Results</h3>${list.length?list.map(r=>`<div class="ritem"><div><b>${esc(r.title)}</b> <span class="pill ${r.status==='Published'?'Confirmed':'Pending'}">${r.status}</span><div class="rmeta">${esc(r.date)}${r.slot?' · '+esc(r.slot):''} · by ${esc(r.by)}</div></div>
+    <div class="rmeta">${esc(r.content.slice(0,110))}${r.content.length>110?'…':''}</div>
+    <div class="acts">${session&&session.role==='super'?`<button class="btn sm" data-rmatch="${esc(r.id)}">Check Matches</button>`:''}<button class="btn sm ghost" data-redit="${esc(r.id)}">Edit</button><button class="btn sm ghost" data-rtog="${esc(r.id)}" data-to="${r.status==='Published'?'Draft':'Published'}">${r.status==='Published'?'Unpublish':'Publish'}</button><button class="btn sm bad" data-rdel="${esc(r.id)}">Delete</button></div></div>`).join(''):'<p style="color:var(--muted)">No results saved yet.</p>'}</div></div><div class="rMatchOut" style="margin-top:20px"></div>`;
+  const reload=async(ok)=>{window._rEdit=null;await resultsManager(el,msgEl);if(ok)msg(msgEl,ok,'okm')};
+  const save=async pub=>{try{await api('saveResult',{id:ed?ed.id:undefined,date:q('.rDate').value,slot:q('.rSlot').value,title:q('.rTitle').value,content:q('.rBody').value,publish:pub});await reload(pub?'Result saved and published.':'Result saved as draft.')}catch(e){sessionFail(e,msgEl)}};
+  q('.rSaveP').onclick=()=>save(true);q('.rSaveD').onclick=()=>save(false);
+  if(q('.rCancel'))q('.rCancel').onclick=()=>reload();
+  q('.rFile').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>60000)return msg(msgEl,'File is too large. Use a text file under 60 KB.');
+    const fr=new FileReader();fr.onload=()=>{q('.rBody').value=String(fr.result).slice(0,20000);if(!q('.rTitle').value)q('.rTitle').value=f.name.replace(/\.[^.]+$/,'')};fr.readAsText(f)};
+  el.querySelectorAll('[data-redit]').forEach(b=>b.onclick=()=>{window._rEdit=b.dataset.redit;resultsManager(el,msgEl);el.scrollIntoView({behavior:'smooth'})});
+  el.querySelectorAll('[data-rmatch]').forEach(b=>b.onclick=async()=>{
+    const out=q('.rMatchOut');out.innerHTML='<p class="lead" style="margin:0">Checking…</p>';
+    try{const m=await api('matchResult',{id:b.dataset.rmatch});
+      const rows=m.matches;
+      out.innerHTML=`<div class="card"><h3 class="gold">Match Check: ${esc(m.title)}</h3>
+      <p class="rmeta">Result date ${esc(m.date)}${m.slot?' · '+esc(m.slot):' · all slots'} · ${m.checked} confirmed entries checked · ${rows.length} matched</p>
+      <p style="margin:10px 0"><b>Numbers read from this result:</b> ${m.numbers.map(n=>`<span class="pill Pending">${esc(n)}</span>`).join(' ')}</p>
+      <div class="msg info" style="margin:0 0 12px">Check these numbers against the official result before awarding anything. Dates and times in the result are ignored. Customers are not shown this list.</div>
+      ${rows.length?`<div class="scroll"><table><thead><tr><th>Order</th><th>Customer</th><th>Ticket</th><th>Qty</th><th>Match</th><th>Matched number</th><th>Confirmed by</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${esc(x.ref)}</td><td>${esc(x.name)}<br><small>${esc(x.mobile)}</small></td><td><b>${esc(x.ticket)}</b></td><td>${x.qty} SEM</td><td><span class="pill ${x.type==='Full 5 digits'?'Confirmed':'Pending'}">${esc(x.type)}</span></td><td>${esc(x.number)}</td><td>${esc(x.by)}</td></tr>`).join('')}</tbody></table></div>
+      <p style="margin-top:12px"><button class="btn sm ghost rCsv">Download CSV</button></p>`:'<p style="color:var(--muted)">No confirmed ticket matched this result.</p>'}</div>`;
+      const cb=out.querySelector('.rCsv');
+      if(cb)cb.onclick=()=>{const csv=['Order,Name,Mobile,Ticket,Qty,Match,Matched number,Confirmed by'].concat(rows.map(x=>[x.ref,x.name,x.mobile,x.ticket,x.qty,x.type,x.number,x.by].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(','))).join('\n');
+        try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='matches-'+m.date+'.csv';a.click()}catch(e){}};
+      out.scrollIntoView({behavior:'smooth'});
+    }catch(e){out.innerHTML='';sessionFail(e,msgEl)}});
+  el.querySelectorAll('[data-rtog]').forEach(b=>b.onclick=async()=>{try{await api('setResultStatus',{id:b.dataset.rtog,status:b.dataset.to});await reload(b.dataset.to==='Published'?'Result published.':'Result unpublished.')}catch(e){sessionFail(e,msgEl)}});
+  el.querySelectorAll('[data-rdel]').forEach(b=>b.onclick=async()=>{
+    if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='Click again to delete';setTimeout(()=>{b.dataset.armed='';b.textContent='Delete'},4000);return}
+    try{await api('deleteResult',{id:b.dataset.rdel});await reload('Result deleted.')}catch(e){sessionFail(e,msgEl)}});
+}
+
+/* ---------- init ---------- */
+(async()=>{await syncClock();renderSlots();renderEntries();loadPublicResults()})();
+</script>
+</body>
+</html>
